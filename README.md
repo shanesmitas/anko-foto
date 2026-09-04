@@ -41,6 +41,6 @@ Use `npm run generate:derived` after a successful build to regenerate the two 10
 
 ## Deployment boundary
 
-`.github/workflows/deploy.yml` deploys pushes to `master` as a Pages artifact under `/anko-foto/`. Deployment to the private repository `shanesmitas/anko-foto` was explicitly authorized on 2026-09-04 and uses authenticated admin access. The live site target is `https://shanesmitas.github.io/anko-foto/`.
+`.github/workflows/deploy.yml` deploys pushes to `master` as a Pages artifact under `/anko-foto/`. Deployment to the public repository `shanesmitas/anko-foto` was explicitly authorized on 2026-09-04 and uses authenticated admin access. The live site is `https://shanesmitas.github.io/anko-foto/`.
 
 For the original handoff, evidence requests, and implementation constraints, start with `README_START_HERE.md` and `CODEX_BUILD_PROMPT.md`.

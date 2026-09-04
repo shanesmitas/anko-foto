@@ -59,15 +59,15 @@
 - [x] E2E Verifier final verdict: `PASS`; 25 locale pairs and 250 route/viewport combinations independently checked.
 - [x] UI/UX Reviewer findings resolved; final verdict: `PASS`.
 - [x] Post-implementation Plan Guardian verdict: `PASS`, with no remaining deviations.
-- [x] GitHub owner `shanesmitas`, private repository visibility, authenticated admin access, and explicit deployment authorization confirmed on 2026-09-04.
-- [ ] Live GitHub Pages URL verified before reporting deployment.
+- [x] GitHub owner `shanesmitas`, public repository visibility, authenticated admin access, and explicit deployment authorization confirmed on 2026-09-04.
+- [x] Live GitHub Pages URL verified at `https://shanesmitas.github.io/anko-foto/` on 2026-09-04.
 
 ## Current milestone status
 
-- Website v1: **locally stable; deployment-ready**
+- Website v1: **deployed and live**
 - Japanese/English quick-reference images: **complete**
 - Optional PDF: **complete**
-- GitHub deployment: **authorized for `shanesmitas/anko-foto`; `master` release in progress**
+- GitHub deployment: **live from `master` at `https://shanesmitas.github.io/anko-foto/`**
 
 ## Known release boundaries
 
