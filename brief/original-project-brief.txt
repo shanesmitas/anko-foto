@@ -1,0 +1,1286 @@
+# Project: Japanese/English Mobile Photography Guide for a Japanese Motorola Smartphone
+
+I want you to research, design, build, test, and ultimately deploy a small mobile-first bilingual photography-learning website for one specific Motorola Android smartphone.
+
+The intended primary reader is a 14-year-old Japanese girl who is interested in experimenting with photography but is a beginner.
+
+This should NOT feel like a technical camera manual.
+
+It should feel like a small, attractive, extremely easy-to-use photography companion that she can open on her phone while she is taking pictures.
+
+The primary output will be a static website deployed to GitHub Pages.
+
+Secondary outputs, after the website is stable, should include:
+
+- a Japanese quick-reference image suitable for saving in the phone's Photos/Gallery
+- an English quick-reference image
+- a concise bilingual PDF/offline guide if practical
+- a source/attribution record
+
+The project should remain lightweight, static, inexpensive/free to host, and easy to maintain.
+
+---
+
+# 1. First: establish the exact device
+
+Do NOT assume the phone is a generic Motorola or blindly reuse guidance for another model.
+
+Known evidence from the physical phone:
+
+- Regulatory model displayed by the phone: `XT2529-3`
+- Japanese-market device
+- Android Motorola camera UI
+- Earlier discussion incorrectly referred to it as a moto g56. Do not carry that assumption forward.
+- Motorola's global moto g56 is associated with a different regional model number.
+- Japanese Motorola support groups the relevant Japanese hardware under the moto g66j 5G / moto g66y 5G family.
+
+There are inconsistent third-party mappings of XT2529-3 and XT2529-4 to g66j/g66y.
+
+Therefore:
+
+## Device-identification rule
+
+Before writing model-specific claims, determine the exact commercial model of THIS unit from authoritative evidence.
+
+Priority:
+
+1. The phone itself:
+   - Settings > About phone / device information
+   - model/product name
+   - Android version
+   - Camera app version if relevant
+
+2. Motorola Japan official documentation
+
+3. Motorola Japan support pages
+
+4. Carrier documentation if this is a carrier variant
+
+5. Motorola global documentation only when Japanese documentation is absent and compatibility/equivalence is verified
+
+6. Reputable secondary sources only to fill documented gaps
+
+Never silently treat a global moto g56 feature as a Japanese g66j/g66y feature merely because the hardware is related.
+
+When a feature is inferred rather than directly verified, say so in the internal research notes.
+
+---
+
+# 2. Existing empirical camera evidence
+
+I will upload screenshots from the actual phone to this Work chat.
+
+Treat those screenshots as important evidence of the actual current Japanese UI.
+
+From screenshots already observed, Pro mode includes a horizontal control row that appears approximately as:
+
+AF | WB | Shutter Speed | ISO | EV
+
+Observed examples include:
+
+- lens selector: `0.5x` and `1x`
+- WB values such as 7,500 K
+- shutter-speed value such as `1/350`
+- Auto shutter value such as `A 1/20`
+- ISO values such as 100
+- Auto ISO values such as `A 3200`
+- exposure compensation around `0.0`
+- Japanese mode labels such as:
+  - 写真
+  - ポートレート
+  - プロ
+  - 詳細
+
+The shutter-speed icon sits between WB and ISO.
+
+Do not rely solely on that summary once screenshots are available. Inspect the screenshots carefully.
+
+Ask me for additional screenshots only when they resolve a genuine uncertainty.
+
+Useful additional screenshots may include:
+
+1. About Phone showing commercial model name
+2. normal Photo mode
+3. Pro mode at 1x
+4. Pro mode at 0.5x
+5. shutter-speed control expanded
+6. ISO control expanded
+7. WB control expanded
+8. manual focus expanded
+9. EV expanded
+10. 詳細 / More modes screen
+11. Camera Settings screen
+12. Night Vision screen
+13. Portrait screen
+14. Panorama screen
+
+Do not make me collect all of these before work can begin. Request only what materially improves accuracy.
+
+---
+
+# 3. Research phase
+
+Before designing the content, conduct a deep device-specific research pass.
+
+Produce:
+
+`research/device-capability-matrix.md`
+
+For every meaningful camera function, record:
+
+- feature
+- whether this exact device supports it
+- Japanese UI label
+- English photography term
+- where it is located in the camera UI
+- applicable lens(es)
+- applicable mode(s)
+- available range/options if known
+- source
+- confidence:
+  - VERIFIED_DEVICE
+  - VERIFIED_OFFICIAL
+  - VERIFIED_EQUIVALENT_MODEL
+  - OBSERVED_SCREENSHOT
+  - INFERRED
+- any firmware/version caveat
+
+Research at minimum:
+
+## Hardware
+
+- primary/main camera
+- ultrawide camera
+- front/selfie camera
+- apertures
+- sensor information
+- autofocus capability
+- flash
+- optical vs digital zoom
+- whether the phone has a dedicated macro camera or uses another method
+- default pixel-binning behavior if relevant
+- high-resolution mode
+
+## Photo modes
+
+Determine whether this exact phone supports and how to access:
+
+- Photo
+- Pro
+- Portrait
+- Night Vision / automatic night mode
+- Panorama
+- Ultra-Res / high-resolution mode
+- Scan
+- Google Lens integration
+- Dual Capture
+- Timelapse / Hyperlapse
+- automatic smile capture
+- any beautification/retouch features
+- selfie-specific modes
+- other meaningful modes found on the actual phone
+
+## Pro controls
+
+Verify carefully:
+
+- autofocus/manual focus
+- white balance
+- shutter speed
+- ISO
+- exposure compensation
+- RAW/DNG if supported
+- metering if exposed
+- histogram if exposed
+- focus peaking if exposed
+- anything else actually present
+
+Especially verify the ACTUAL manual shutter-speed range.
+
+Do not assume generic smartphone values such as 1, 2, 4, or 30 second exposures.
+
+If the slowest shutter available on this device is only, for example, 1/4 or 1/6 second, the guide must reflect that.
+
+If slow shutter differs between 1x and 0.5x, document it.
+
+## Video
+
+Research enough to create a small useful video section:
+
+- available resolutions
+- 30/60 fps availability
+- which lens supports which frame rates
+- stabilization if relevant
+- timelapse/hyperlapse
+
+Photography remains the main focus.
+
+---
+
+# 4. Research the website framework before implementation
+
+I want this hosted on GitHub Pages.
+
+It should be:
+
+- static
+- mobile-first
+- fast
+- easy to maintain
+- open-source
+- bilingual Japanese/English
+- accessible
+- capable of attractive image-heavy pages
+- easy to author in Markdown/MDX or simple structured content
+- no backend
+- no database
+- no API keys
+- no login
+- no analytics or tracking by default
+
+Research at most three suitable open-source frameworks/templates.
+
+Evaluate them against:
+
+1. Japanese/English i18n support
+2. language-switching UX
+3. mobile navigation
+4. accessibility
+5. GitHub Pages deployment
+6. image optimization
+7. performance
+8. ease of customization
+9. Markdown/MDX authoring
+10. maintenance burden
+11. active maintenance/community
+12. ability to make the site feel like a visual photography guide instead of developer documentation
+
+My current preferred starting point is:
+
+**Astro + Starlight**
+
+Reasons to investigate it first:
+
+- open source
+- static generation
+- strong mobile performance
+- accessibility-oriented
+- first-class documentation/content primitives
+- multilingual support
+- language selector
+- Markdown/MDX
+- dark/light mode
+- search if useful
+- official Astro GitHub Pages deployment support
+- easy custom Astro components for photography recipe cards
+
+However, do not choose it merely because I suggested it.
+
+Compare it briefly against one or two credible alternatives such as VitePress, MkDocs Material, or another actively maintained open-source static content framework.
+
+Do not spend excessive time on framework selection.
+
+Produce:
+
+`research/template-decision.md`
+
+Make a recommendation and explain the tradeoffs.
+
+Default to Astro + Starlight unless another option provides a materially better solution.
+
+---
+
+# 5. Core UX philosophy
+
+This guide is for someone USING the camera, not studying for a photography exam.
+
+The most important design principle:
+
+### Get her to a useful setting in seconds.
+
+Japanese should be the DEFAULT language.
+
+English should be available through a prominent:
+
+`日本語 | EN`
+
+language switch.
+
+When switching languages, keep the user on the equivalent page wherever possible.
+
+Do NOT show Japanese and English simultaneously in long side-by-side blocks on mobile.
+
+Use separate localized versions.
+
+Photography abbreviations should remain recognizable:
+
+- ISO
+- WB
+- AF
+- EV
+
+Japanese text can introduce them as:
+
+- ISO感度 (ISO)
+- ホワイトバランス (WB)
+- フォーカス (AF)
+- 露出補正 (EV)
+- シャッタースピード (Shutter Speed)
+
+Japanese must be natural, simple Japanese suitable for approximately a middle-school reader.
+
+Do not write childish Japanese.
+
+Do not write literal machine-translated English.
+
+Tone should be:
+
+- friendly
+- clear
+- encouraging
+- concise
+- visual
+- practical
+
+Avoid large paragraphs.
+
+---
+
+# 6. Mobile-first design
+
+Design primarily for approximately 360–430px phone screens.
+
+Requirements:
+
+- single-column layout on mobile
+- no horizontal scrolling
+- body text at least ~17px where practical
+- generous Japanese line height
+- minimum ~44px touch targets
+- high contrast
+- readable in sunlight
+- responsive images
+- lazy-load noncritical images
+- compressed WebP/AVIF where appropriate
+- semantic HTML
+- accessible controls
+- useful alt text
+- system light/dark mode or an easy theme control
+- no tiny tables
+
+For settings, use large visual chips/cards such as:
+
+[ 1× ]
+[ ISO 100 ]
+[ 1/250秒 ]
+[ WB 6000K ]
+
+The key settings for a recipe should appear immediately without scrolling through an essay.
+
+The design should be modern and attractive but not overly childish.
+
+No unnecessary animations.
+
+No heavy JavaScript if static HTML/CSS can do the job.
+
+---
+
+# 7. Proposed information architecture
+
+Start with this as the conceptual site map, then improve it if research suggests a better structure.
+
+## Home
+
+Large title:
+
+`moto カメラ遊びガイド`
+
+or a better natural Japanese title.
+
+Subtitle explaining that it is a simple photography companion for this exact phone.
+
+Primary action:
+
+### 何を撮りたい？
+### What do you want to photograph?
+
+Use large visual cards:
+
+- 🌇 夕焼け / Sunset
+- 🚗 動いている車 / Moving Cars
+- ✨ 車のライト / Car Lights
+- 👤 人物 / Portrait
+- 🐕 ペット・動くもの / Pets & Action
+- 🌃 夜景 / Night
+- 🌸 花・近くのもの / Flowers & Close-ups
+- 🍜 食べ物 / Food
+- 🏞 景色 / Landscape
+- 🌉 パノラマ / Panorama
+
+The home page should prioritize these photography goals over theory.
+
+---
+
+# 8. “Know Your Camera” section
+
+Create a visual annotated guide using screenshots from the ACTUAL phone.
+
+Pages/cards should include:
+
+## Camera overview
+
+Annotate:
+
+- shutter button
+- front/rear camera switch
+- 0.5x
+- 1x
+- mode selector
+- settings
+- flash
+- other visible controls
+
+## Pro mode
+
+Annotate:
+
+AF | WB | Shutter | ISO | EV
+
+Each should be tappable/link to its explanation.
+
+## Lens guide
+
+Explain visually:
+
+### 1x
+Best general/default option.
+
+Good for:
+- people
+- bridge scenes
+- sunsets
+- night
+- moving objects
+- general photography
+
+### 0.5x
+Use when you need more of the scene.
+
+Good for:
+- landscapes
+- buildings
+- groups
+- small rooms
+- dramatic perspective
+
+Explain image-quality tradeoffs, especially at night.
+
+Use actual supported lens behavior rather than generic assumptions.
+
+---
+
+# 9. Teach only the controls she can actually use
+
+Do not teach DSLR controls as though the phone provides them.
+
+For example:
+
+If the phone has a fixed aperture and no manual aperture setting, explain briefly:
+
+### Why can't I change aperture?
+Because this phone's camera lens uses a fixed aperture. You control brightness mainly through shutter speed, ISO, exposure compensation, and the phone's automatic processing.
+
+Do NOT present the classic ISO/shutter/aperture “exposure triangle” as three manually adjustable controls if aperture is fixed.
+
+A better beginner framework for THIS phone might be:
+
+### Shutter Speed
+Controls movement + affects brightness.
+
+### ISO
+Controls sensitivity/brightness + noise.
+
+### Exposure Compensation
+Tells Auto exposure to make the result lighter/darker.
+
+### White Balance
+Controls warm/cool color.
+
+### Focus
+Controls what is sharp.
+
+Build the education around the hardware in her hand.
+
+---
+
+# 10. Visual learning pages
+
+For each major variable, create a visual comparison.
+
+## Shutter speed
+
+Show the SAME type of moving subject at several speeds.
+
+Example conceptual progression:
+
+1/500 → frozen
+1/125 → mostly frozen
+1/30 → visible movement
+slowest supported value → strong motion blur
+
+Do not use shutter values the device cannot select.
+
+## ISO
+
+Same scene:
+
+ISO 100 → clean
+ISO 400 → brighter/some noise
+ISO 800 → more noise
+ISO 1600+ → significant noise
+
+Use only values the phone actually offers.
+
+## White balance
+
+Same scene at, for example:
+
+4000K → cooler
+5000K
+6000K
+7000K → warmer
+
+Only if those settings/ranges are actually available.
+
+## Exposure compensation
+
+-1 EV
+0
++1 EV
+
+Explain simply:
+
+darker ← normal → brighter
+
+## Focus
+
+near object → middle subject → distant scenery
+
+Whenever using simulated comparison imagery, label it clearly as an illustrative example rather than pretending it was captured at that exact physical setting.
+
+---
+
+# 11. Photography recipes
+
+This is the heart of the site.
+
+Each recipe must have the same predictable layout.
+
+Example:
+
+# 夕焼けの橋 — 車をくっきり撮る
+
+[large example image]
+
+## まずこれを試そう
+
+Mode: Pro
+Lens: 1x
+Shutter: 1/250
+ISO: 400
+WB: 6000K
+Focus: AF
+
+Then:
+
+### 暗すぎる？
+ISO 400 → 800
+
+### 車がブレる？
+1/250 → 1/500
+
+### 空が白っぽい？
+Reduce exposure slightly if compatible with the selected manual controls.
+
+### 何が変わる？
+A faster shutter freezes movement.
+
+The equivalent English page:
+
+# Sunset Bridge — Freeze the Cars
+
+[image]
+
+## Try this first
+
+...
+
+Recipes should provide STARTING POINTS, not pretend a setting guarantees correct exposure in every light condition.
+
+Use language such as:
+
+“Start here”
+“Try this”
+“If it looks too dark...”
+
+rather than:
+
+“This is the correct setting.”
+
+---
+
+# 12. Initial recipe set
+
+Develop approximately 10–15 high-quality recipes rather than dozens of shallow ones.
+
+Prioritize:
+
+1. Rich sunset
+2. Sunset with a person
+3. Freeze moving cars
+4. Add motion blur to cars
+5. Car-light streaks using the slowest exposure genuinely available
+6. Night city
+7. Portrait with background separation
+8. Running pet / action
+9. Flower close-up
+10. Food by window light
+11. Wide landscape
+12. Dramatic 0.5x building/scene
+13. Panorama
+14. Simple selfie
+15. Night portrait if the phone handles it well
+
+Important:
+
+For light trails, verify the maximum slow shutter on THIS phone first.
+
+Do not tell her to select 1–4 second exposures if the camera does not offer them.
+
+If true long light trails are not possible in Motorola's native app, explain honestly what the native app can achieve.
+
+Only discuss third-party camera apps in an optional advanced section after evaluating safety, quality, and necessity.
+
+---
+
+# 13. “My picture looks wrong” troubleshooter
+
+This should be one of the most useful pages.
+
+Create large problem cards.
+
+## 写真が暗い
+Too dark
+
+Try:
+- slower shutter if appropriate
+- higher ISO
+- return a control to Auto
+- use Night Vision where appropriate
+
+## 写真が明るすぎる
+Too bright
+
+Try:
+- faster shutter
+- lower ISO
+- lower exposure compensation where applicable
+
+## 動いているものがブレる
+Moving subject is blurry
+
+Try:
+- faster shutter
+- enough ISO to support that shutter speed
+
+## 全部ブレている
+Everything is blurry
+
+Try:
+- brace the phone
+- use timer
+- faster shutter
+- avoid moving the phone
+
+## ザラザラしている
+Too grainy/noisy
+
+Try:
+- lower ISO
+- more available light
+- Night Vision where suitable
+
+## 夕焼けが白っぽい
+Sunset looks washed out
+
+Try:
+- reduce exposure
+- meter/focus on the sky if suitable
+
+## 色が青すぎる・黄色すぎる
+Too blue/yellow
+
+Try:
+- WB adjustment
+- Auto WB
+
+## ピントが合わない
+Out of focus
+
+Try:
+- tap the subject
+- AF
+- manual focus only when useful
+
+The instructions must account for interactions between manual settings.
+
+For example, if ISO and shutter are both fully manual, EV may not behave like it does in Auto exposure.
+
+Research the actual behavior.
+
+---
+
+# 14. Quick decision guide
+
+Create a page/card that answers:
+
+### 普通の写真をきれいに撮りたい
+Use Photo
+
+### 暗い
+Use Night Vision / automatic night mode
+
+### 人を撮りたい
+Use Portrait
+
+### ISOやシャッターで遊びたい
+Use Pro
+
+### もっと広く撮りたい
+Use 0.5x
+
+### とても広い景色
+Use Panorama
+
+### 細かいところまで撮りたい
+Use the appropriate high-resolution mode if supported
+
+Teach that Pro mode is not automatically “better.”
+
+Motorola computational Photo/Night modes may produce a better photograph in many situations.
+
+Pro is particularly useful for learning and creative control.
+
+---
+
+# 15. Fun mini-challenges
+
+Add a small section encouraging experimentation.
+
+Examples:
+
+## Challenge 1 — Stop vs Blur
+
+Photograph the same moving car twice:
+
+- fast shutter
+- slow shutter
+
+Compare them.
+
+## Challenge 2 — Warm vs Cool
+
+Photograph the same sunset at two WB values.
+
+## Challenge 3 — 1x vs 0.5x
+
+Photograph the same building with each lens.
+
+## Challenge 4 — Bright vs Dark
+
+Try exposure compensation on the same scene.
+
+## Challenge 5 — Background
+
+Take a portrait:
+- close to a background
+- far away from a background
+
+See which looks better.
+
+Keep these brief and fun.
+
+---
+
+# 16. Images and copyright
+
+The site should be visual, but do not copy arbitrary Google Images.
+
+Image priority:
+
+1. Photos/screenshots supplied by me
+2. Original educational graphics created for the project
+3. Generated illustrative imagery where appropriate
+4. Properly licensed photography:
+   - CC0
+   - suitable Creative Commons licenses
+   - other licenses explicitly permitting the required use
+5. Official Motorola images where terms permit appropriate reference/use
+
+For third-party images:
+
+- download/localize them rather than hotlink when license allows
+- optimize for the website
+- preserve attribution
+- record:
+  - creator
+  - source
+  - license
+  - original URL
+  - modifications
+
+Create:
+
+`assets/ATTRIBUTION.md`
+
+and, if useful:
+
+`src/data/assets.yml`
+
+Never represent a stock/example photo as having been shot on this Motorola unless there is evidence it actually was.
+
+For setting-effect demonstrations, a purpose-made visual simulation may be clearer.
+
+Label simulations as:
+
+`Illustrative example / イメージ`
+
+---
+
+# 17. Site content model
+
+Avoid duplicating numeric photography advice independently across many pages.
+
+Prefer a single source of truth for recipes and settings where practical.
+
+Consider structured Astro content collections, YAML, JSON, or Markdown frontmatter containing fields such as:
+
+slug
+category
+difficulty
+title_ja
+title_en
+summary_ja
+summary_en
+mode
+lens
+shutter
+iso
+wb
+focus
+ev
+conditions
+too_dark
+too_bright
+too_blurry
+learning_point
+image
+image_attribution
+device_support_status
+
+Choose a content architecture that remains simple.
+
+Do not overengineer a CMS.
+
+---
+
+# 18. Navigation
+
+On mobile, keep navigation extremely simple.
+
+Suggested persistent navigation:
+
+Home
+撮り方 / Recipes
+設定 / Controls
+困った時 / Help
+
+Language toggle should be easily accessible.
+
+Search is optional.
+
+If Starlight's built-in search is essentially free and does not hurt mobile UX, retain it.
+
+Do not make a sidebar the primary mobile navigation experience if cards/tabs work better.
+
+Desktop can use richer navigation.
+
+---
+
+# 19. Homepage visual style
+
+Aim for:
+
+- modern
+- clean
+- photographic
+- high contrast
+- warm but not childish
+- attractive to a teenager
+- large imagery
+- subtle icons
+- rounded cards where appropriate
+- restrained animation
+
+Avoid:
+
+- enterprise-dashboard appearance
+- developer-documentation feel
+- cartoon-heavy design
+- clutter
+- tiny icons
+- walls of Japanese text
+- excessively “cute” styling unless I later request it
+
+Use system fonts or an appropriate Japanese web-safe stack to minimize page weight.
+
+Do not bundle unnecessary font files.
+
+---
+
+# 20. Quick-reference image
+
+After the main site works, produce a portrait-oriented Japanese image that can be saved directly in her phone Gallery.
+
+It should summarize things such as:
+
+## 動きを止める
+Fast shutter
+
+## 動きをぼかす
+Slow shutter
+
+## 明るい場所
+Low ISO
+
+## 暗い場所
+Higher ISO / Night mode
+
+## 色
+WB:
+cool ← → warm
+
+## レンズ
+1x = default/best quality
+0.5x = extra wide
+
+## 困ったら
+Dark → slower shutter / higher ISO
+Grainy → lower ISO
+Moving subject blurry → faster shutter
+Everything blurry → steady phone
+
+Do NOT include values unsupported by the actual phone.
+
+Make an English version as well.
+
+---
+
+# 21. Offline/PWA
+
+The website must work well as an ordinary GitHub Pages site first.
+
+After core functionality is stable, investigate whether simple:
+
+- Add to Home Screen metadata
+- web manifest
+- modest offline caching
+
+can be added reliably without adding substantial complexity.
+
+Treat PWA behavior as a nice-to-have, not a reason to overengineer version 1.
+
+---
+
+# 22. GitHub repository and deployment
+
+Preferred repository name:
+
+`moto-camera-guide-jp`
+
+or, once exact commercial model is confirmed:
+
+`moto-g66j-camera-guide`
+
+Use a clear name that does not encode the wrong model.
+
+Requirements:
+
+- public or private repository according to my preference/available GitHub Pages support
+- README
+- development instructions
+- production build command
+- GitHub Actions deployment
+- correct GitHub Pages `site` / `base` handling
+- no secrets
+- no paid hosting dependency
+
+Use the framework's officially recommended GitHub Pages deployment workflow where possible.
+
+After deployment, provide:
+
+- repository URL
+- live GitHub Pages URL
+- build status
+- instructions for updating content
+
+If GitHub integration is available in this Work environment, use it when appropriate.
+
+Do not claim deployment succeeded until the live site has actually been checked.
+
+---
+
+# 23. QA requirements
+
+Before considering version 1 complete:
+
+## Functional
+
+- Japanese homepage works
+- English homepage works
+- language toggle works
+- equivalent-page switching works
+- navigation works
+- all images load
+- internal links work
+- GitHub Pages base paths work
+
+## Mobile
+
+Test at least:
+
+- 360px width
+- 390px width
+- 412/430px width
+
+Verify:
+
+- no horizontal overflow
+- settings chips are readable
+- images resize correctly
+- navigation is usable
+- language switch is easy to tap
+- no important control is hidden behind browser chrome
+
+## Accessibility
+
+- semantic headings
+- color contrast
+- keyboard navigation where relevant
+- visible focus
+- alt text
+- touch-target sizes
+- no information communicated by color alone
+
+## Performance
+
+Aim for excellent mobile performance.
+
+Use Lighthouse or equivalent.
+
+Targets should generally be around 90+ for:
+
+- Performance
+- Accessibility
+- Best Practices
+- SEO
+
+Do not sacrifice actual user experience merely to chase a score.
+
+## Content QA
+
+Every device-specific factual claim must be traceable to:
+
+- actual screenshot/device test
+- Motorola documentation
+- carrier documentation
+- another recorded source
+
+Every suggested photography setting must be physically selectable on this device OR be clearly marked as conceptual/illustrative.
+
+Japanese and English versions must agree on all numeric settings.
+
+---
+
+# 24. Safety and photography etiquette
+
+Because the intended reader is young, include one very short practical safety section.
+
+Examples:
+
+- Don't step into roads or unsafe places to get a picture.
+- Don't climb barriers for a better angle.
+- Be aware of traffic and surroundings.
+- Respect people's privacy.
+- Ask permission for close-up photos of strangers where appropriate.
+- Be careful near water, cliffs, train platforms, bridges, etc.
+
+Do not make this section scary or overly paternalistic.
+
+Keep it short and practical.
+
+---
+
+# 25. Research/source transparency
+
+Create a simple Sources/About page.
+
+Separate:
+
+### Verified for this phone
+
+from:
+
+### General photography guidance
+
+and from:
+
+### Illustrative examples
+
+This is especially important because Motorola uses closely related hardware under different regional names.
+
+The public site does not need academic citations after every sentence.
+
+However, source provenance should be available.
+
+Internally maintain:
+
+`research/sources.md`
+
+with:
+
+- source title
+- publisher
+- URL
+- access date
+- what fact it supports
+- whether primary/secondary
+
+---
+
+# 26. Work process
+
+Use this sequence.
+
+## Phase A — Device research
+
+Confirm exact phone variant and create the capability matrix.
+
+Do not begin writing lots of photography advice before this is done.
+
+## Phase B — Framework decision
+
+Compare no more than three static-site approaches.
+
+Recommend one.
+
+## Phase C — UX/content architecture
+
+Produce:
+
+- site map
+- mobile wireframe descriptions
+- recipe schema
+- proposed visual style
+- screenshot/asset requirements
+
+## CHECKPOINT
+
+Show me:
+
+1. exact device conclusion and confidence
+2. verified camera capability summary
+3. framework/template recommendation
+4. proposed site map
+5. example homepage wireframe
+6. example recipe wireframe
+7. missing screenshots/assets you genuinely need
+8. implementation plan
+
+At this checkpoint, do not overwhelm me with low-level implementation detail.
+
+Wait for my approval before the major implementation if the Work workflow allows an explicit planning checkpoint.
+
+## Phase D — Build
+
+Implement the site.
+
+## Phase E — Content and visuals
+
+Populate all version-1 content.
+
+## Phase F — QA
+
+Test everything.
+
+## Phase G — Deploy
+
+Deploy to GitHub Pages and validate the live site.
+
+## Phase H — Derived assets
+
+Create quick-reference images and then a PDF/offline guide.
+
+---
+
+# 27. Scope discipline
+
+This should remain a lightweight photography companion.
+
+Do NOT build:
+
+- accounts
+- database
+- comments
+- social networking
+- cloud photo storage
+- AI backend
+- analytics platform
+- admin dashboard
+- complex CMS
+- unnecessary JavaScript application state
+
+Keep the codebase simple enough that one person can update a recipe by editing one Markdown/YAML/data file and pushing to GitHub.
+
+---
+
+# 28. Product success criterion
+
+Imagine she is standing outside at sunset and wants to photograph cars on a bridge.
+
+Within approximately 10 seconds of opening the guide, she should be able to:
+
+1. tap “Moving Cars” or “Sunset”
+2. see exactly which Motorola camera mode to open
+3. see which lens to choose
+4. see a starting shutter speed
+5. see a starting ISO
+6. understand which button on HER Japanese camera screen controls each setting
+7. see an example of the expected effect
+8. know what to change if her photo is too dark or blurry
+
+If the website achieves that reliably, the product is succeeding.
+
+---
+
+# 29. Start now
+
+Begin with research and planning.
+
+Use current web research rather than relying on assumptions in this prompt.
+
+The actual phone screenshots and Motorola Japan documentation outrank generic photography articles.
+
+First produce the device identity/capability research and framework recommendation.
+
+Do not write production code until the core device assumptions have been verified sufficiently to avoid building the guide around the wrong regional Motorola model.

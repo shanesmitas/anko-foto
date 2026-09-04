@@ -1,0 +1,30 @@
+---
+import Search from '@astrojs/starlight/components/Search.astro';
+import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
+import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
+import { alternateLocalePath } from '../lib/routes';
+
+const locale = Astro.currentLocale === 'en' || Astro.url.pathname.includes('/en/') ? 'en' : 'ja';
+const alternate = alternateLocalePath(Astro.url.pathname, locale);
+---
+
+<div class="guide-header">
+  <div class="guide-site-title"><SiteTitle /></div>
+  <a
+    class="mobile-camera-mark"
+    href={locale === 'ja' ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}en/`}
+    aria-label={locale === 'ja' ? 'ホーム' : 'Home'}>◉</a
+  >
+  <div class="guide-header-search"><Search /></div>
+  <div class="guide-header-theme"><ThemeSelect /></div>
+  <a
+    class="language-jump"
+    href={alternate}
+    hreflang={locale === 'ja' ? 'en' : 'ja'}
+    aria-label={locale === 'ja' ? 'Switch to English' : '日本語に切り替える'}
+  >
+    <span class:list={{ current: locale === 'ja' }}>日本語</span><span aria-hidden="true">
+      |
+    </span><span class:list={{ current: locale === 'en' }}>EN</span>
+  </a>
+</div>

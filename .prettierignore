@@ -1,0 +1,13 @@
+dist
+.verification
+node_modules
+public/downloads
+playwright-report
+test-results
+evidence/screenshots
+CODEX_BUILD_PROMPT.md
+README_START_HERE.md
+ORIGINAL_BRIEF.md
+planning
+research
+MANIFEST.sha256

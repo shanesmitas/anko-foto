@@ -1,0 +1,174 @@
+---
+import { publicRecipes, settingLabel } from '../../../data/recipes';
+
+export function getStaticPaths() {
+  return ['ja', 'en'].map((locale) => ({ params: { locale }, props: { locale } }));
+}
+interface Props {
+  locale: 'ja' | 'en';
+}
+const { locale } = Astro.props;
+const picks = [
+  'sunset',
+  'moving-subject',
+  'night-city',
+  'people-portrait',
+  'flower-closeup',
+  'wide-landscape'
+]
+  .map((slug) => publicRecipes.find((recipe) => recipe.slug === slug))
+  .filter(Boolean);
+const title = locale === 'ja' ? 'moto カメラ 早見表' : 'moto Camera Quick Guide';
+---
+
+<html lang={locale}>
+  <head><meta charset="utf-8" /><meta name="robots" content="noindex" /><title>{title}</title></head
+  >
+  <body>
+    <main>
+      <header>
+        <p>{locale === 'ja' ? '保存して、撮る時に見る' : 'Save it for your next photo walk'}</p><h1>
+          {title}
+        </h1><div class="start">
+          {
+            locale === 'ja'
+              ? '迷ったら「写真」＋1× → 写したい所をタップ'
+              : 'When in doubt: Photo + 1× → tap your subject'
+          }
+        </div>
+      </header>
+      <section>
+        {
+          picks.map(
+            (recipe, i) =>
+              recipe && (
+                <article>
+                  <>
+                    <span>{String(i + 1).padStart(2, '0')}</span>
+                    <div>
+                      <>
+                        <h2>{recipe.title[locale]}</h2>
+                        <p>{recipe.tryFirst.map((step) => step[locale]).join(' → ')}</p>
+                        <strong>
+                          {recipe.settings
+                            .map((setting) => settingLabel(setting, locale))
+                            .join(' · ')}
+                        </strong>
+                      </>
+                    </div>
+                  </>
+                </article>
+              )
+          )
+        }
+      </section>
+      <footer>
+        <b>{locale === 'ja' ? '安全が先。' : 'Safety first.'}</b>
+        {
+          locale === 'ja'
+            ? '歩きながら画面を見ない。人を撮る・共有する前に聞く。'
+            : 'Do not watch the screen while walking. Ask before photographing or sharing.'
+        }<small
+          >moto-camera-guide-jp · {
+            locale === 'ja'
+              ? '実機で確認できた値だけを掲載'
+              : 'Exact values are device-observed only'
+          }</small
+        >
+      </footer>
+    </main>
+  </body>
+</html>
+<style>
+  @page {
+    size: 1080px 1920px;
+    margin: 0;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    font-family: Inter, system-ui, 'Noto Sans JP', sans-serif;
+    color: #10223b;
+    background: #fff9ee;
+  }
+  main {
+    min-height: 100%;
+    padding: 92px 82px 76px;
+    background: radial-gradient(circle at 100% 0, #d8f1f9, transparent 34%), #fff9ee;
+  }
+  header p {
+    margin: 0 0 12px;
+    color: #187c9f;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+  h1 {
+    margin: 0;
+    font-size: 76px;
+    line-height: 1.1;
+  }
+  .start {
+    margin: 38px 0 42px;
+    padding: 28px 34px;
+    border-radius: 24px;
+    background: #10223b;
+    color: white;
+    font-size: 31px;
+    font-weight: 800;
+  }
+  section {
+    display: grid;
+    gap: 18px;
+  }
+  article {
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    gap: 20px;
+    padding: 24px 28px;
+    border: 2px solid #dce2e8;
+    border-radius: 24px;
+    background: rgb(255 255 255 / 0.86);
+  }
+  article > span {
+    display: grid;
+    place-items: center;
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    background: #f3a21a;
+    font-size: 27px;
+    font-weight: 900;
+  }
+  h2 {
+    margin: 0 0 5px;
+    font-size: 32px;
+  }
+  article p {
+    margin: 0 0 6px;
+    font-size: 23px;
+    line-height: 1.35;
+  }
+  article strong {
+    color: #176d91;
+    font-size: 21px;
+  }
+  footer {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 5px solid #db5b45;
+    font-size: 24px;
+    line-height: 1.4;
+  }
+  footer small {
+    display: block;
+    margin-top: 14px;
+    color: #526176;
+    font-size: 18px;
+  }
+</style>

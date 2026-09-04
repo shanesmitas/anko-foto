@@ -1,0 +1,18 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import GoalGrid from '../../../components/GoalGrid.astro';
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'Recipes',
+    description: 'Fifteen photo recipes using only device-observed exact settings.',
+    hero: {
+      title: 'Choose a recipe',
+      tagline:
+        'Every exact public value was seen on this device. When a range is unknown, the guide gives a direction instead of inventing a target.'
+    }
+  }}
+>
+  <GoalGrid locale="en" />
+</StarlightPage>

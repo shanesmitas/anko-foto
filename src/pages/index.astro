@@ -1,0 +1,51 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import GoalGrid from '../components/GoalGrid.astro';
+import { withBase } from '../lib/routes';
+---
+
+<StarlightPage
+  frontmatter={{
+    title: '撮りたいものから選ぶ',
+    description: 'motoカメラで写真を楽しむ、やさしい実践ガイド。',
+    template: 'splash',
+    hero: {
+      title: '何を撮りたい？',
+      tagline:
+        'むずかしい言葉より、撮りたいものから。カードを一つ選ぶと、最初の設定へすぐ進めます。',
+      actions: [{ text: '撮りたいものを選ぶ', link: '#goals', variant: 'primary' }]
+    }
+  }}
+>
+  <nav class="mode-chooser" aria-label="モードから選ぶ">
+    <strong>モードから：</strong>
+    <a href={withBase('/recipes/everyday-photo/')}>写真</a>
+    <a href={withBase('/recipes/night-city/')}>ナイトビジョン</a>
+    <a href={withBase('/recipes/people-portrait/')}>ポートレート</a>
+    <a href={withBase('/recipes/moving-subject/')}>プロ</a>
+    <a href={withBase('/recipes/wide-landscape/')}>0.5×</a>
+    <a href={withBase('/recipes/panorama/')}>パノラマ</a>
+  </nav>
+  <section id="goals" aria-labelledby="goals-title">
+    <h2 id="goals-title" class="section-heading">撮りたいものから選ぶ</h2>
+    <GoalGrid
+      locale="ja"
+      slugs={[
+        'sunset',
+        'moving-subject',
+        'night-city',
+        'people-portrait',
+        'pet-action',
+        'flower-closeup',
+        'food-window-light',
+        'wide-landscape',
+        'panorama',
+        'selfie'
+      ]}
+    />
+  </section>
+  <div class="callout-panel">
+    <strong>迷ったら：</strong
+    >「写真」＋1×で始めて、写したい場所をタップ。画面だけでなく足元も見よう。
+  </div>
+</StarlightPage>

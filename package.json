@@ -1,0 +1,48 @@
+{
+  "name": "moto-camera-guide-jp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.1 <21"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "npm run validate:data && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "validate:data": "vitest run tests/data-validation.test.ts",
+    "test": "vitest run tests/data-validation.test.ts",
+    "test:links": "node scripts/check-links.mjs",
+    "test:e2e": "playwright test tests/e2e.spec.ts",
+    "test:a11y": "playwright test tests/a11y.spec.ts",
+    "generate:derived": "node scripts/generate-derived-assets.mjs",
+    "lighthouse": "node scripts/run-lighthouse.mjs"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "0.37.7",
+    "astro": "5.18.2",
+    "sharp": "0.35.4",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "@astrojs/check": "0.9.10",
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.62.1",
+    "eslint": "9.39.5",
+    "eslint-plugin-astro": "1.5.0",
+    "lighthouse": "12.8.2",
+    "prettier": "3.9.6",
+    "prettier-plugin-astro": "0.14.1",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.69.0",
+    "vitest": "3.2.7"
+  },
+  "overrides": {
+    "undici": "7.29.1"
+  }
+}

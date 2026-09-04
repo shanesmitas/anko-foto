@@ -1,0 +1,17 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import GoalGrid from '../../components/GoalGrid.astro';
+---
+
+<StarlightPage
+  frontmatter={{
+    title: '撮り方',
+    description: '端末で確認できた設定だけを使う、15の撮影レシピ。',
+    hero: {
+      title: '撮り方を選ぶ',
+      tagline: '公開レシピの数値は、実機で見えたものだけ。分からない範囲は、方向で案内します。'
+    }
+  }}
+>
+  <GoalGrid locale="ja" />
+</StarlightPage>

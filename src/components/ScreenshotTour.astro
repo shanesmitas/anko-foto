@@ -1,0 +1,137 @@
+---
+import { Image } from 'astro:assets';
+import photo from '../../evidence/screenshots/06-photo-mode.png';
+import details from '../../evidence/screenshots/08-details-mode-grid.png';
+import pro from '../../evidence/screenshots/11-pro-shutter-expanded.png';
+import type { Locale } from '../lib/routes';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const views =
+  locale === 'ja'
+    ? [
+        {
+          src: photo,
+          title: '写真画面',
+          points: [
+            '上部の撮影コントロール',
+            '倍率 0.5× / 1× / 2×',
+            'シャッターボタン',
+            '写真・ポートレート・詳細'
+          ],
+          markers: [
+            { x: '50%', y: '8%' },
+            { x: '50%', y: '69%' },
+            { x: '50%', y: '88%' },
+            { x: '50%', y: '79%' }
+          ]
+        },
+        {
+          src: details,
+          title: '「詳細」のモード一覧',
+          points: [
+            '上段：スキャン・ナイトビジョン・パノラマ',
+            '中段：最大画素・フォトブース・ティルトシフト',
+            '下段：タイムラプス・デュアル撮影動画'
+          ],
+          markers: [
+            { x: '50%', y: '33%' },
+            { x: '50%', y: '45%' },
+            { x: '50%', y: '57%' }
+          ]
+        },
+        {
+          src: pro,
+          title: 'プロ画面',
+          points: [
+            'RAW形式ボタン（出力の組み合わせは未確認）',
+            'ライブヒストグラム',
+            'AF・WB・S・ISO・EV の操作列'
+          ],
+          markers: [
+            { x: '30%', y: '8%' },
+            { x: '89%', y: '18%' },
+            { x: '50%', y: '68%' }
+          ]
+        }
+      ]
+    : [
+        {
+          src: photo,
+          title: 'Photo screen',
+          points: [
+            'Top shooting controls',
+            '0.5× / 1× / 2× choices',
+            'Shutter button',
+            'Photo, Portrait, and Details'
+          ],
+          markers: [
+            { x: '50%', y: '8%' },
+            { x: '50%', y: '69%' },
+            { x: '50%', y: '88%' },
+            { x: '50%', y: '79%' }
+          ]
+        },
+        {
+          src: details,
+          title: 'The Details mode grid',
+          points: [
+            'Top row: Scan, Night Vision, Panorama',
+            'Middle row: Maximum Pixels, Photobooth, Tilt-shift',
+            'Lower row: Timelapse and Dual Capture Video'
+          ],
+          markers: [
+            { x: '50%', y: '33%' },
+            { x: '50%', y: '45%' },
+            { x: '50%', y: '57%' }
+          ]
+        },
+        {
+          src: pro,
+          title: 'Pro screen',
+          points: [
+            'RAW format button (output combinations unconfirmed)',
+            'Live histogram',
+            'AF, WB, S, ISO, and EV control row'
+          ],
+          markers: [
+            { x: '30%', y: '8%' },
+            { x: '89%', y: '18%' },
+            { x: '50%', y: '68%' }
+          ]
+        }
+      ];
+---
+
+<div class="screenshot-tour">
+  {
+    views.map((view) => (
+      <figure class="screenshot-card">
+        <div class="phone-crop">
+          <Image src={view.src} alt={view.title} />
+          {view.markers.map((marker, index) => (
+            <span
+              class="screen-marker"
+              style={`--marker-x:${marker.x};--marker-y:${marker.y}`}
+              aria-hidden="true"
+            >
+              {index + 1}
+            </span>
+          ))}
+        </div>
+        <figcaption>
+          <>
+            <h3>{view.title}</h3>
+            <ol>
+              {view.points.map((point) => (
+                <li>{point}</li>
+              ))}
+            </ol>
+          </>
+        </figcaption>
+      </figure>
+    ))
+  }
+</div>

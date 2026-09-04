@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import af from '../../evidence/screenshots/09-pro-af-expanded.png';
+import wb from '../../evidence/screenshots/10-pro-wb-expanded.png';
+import shutter from '../../evidence/screenshots/11-pro-shutter-expanded.png';
+import iso from '../../evidence/screenshots/12-pro-iso-expanded.png';
+import ev from '../../evidence/screenshots/13-pro-ev-expanded.png';
+import type { Locale } from '../lib/routes';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const controls =
+  locale === 'ja'
+    ? [
+        { src: af, name: 'AF', note: '花から∞へ。端点の距離は未確認。' },
+        { src: wb, name: 'WB', note: '色を暖色／寒色へ。端点は未確認。' },
+        { src: shutter, name: 'S', note: 'A 1/6は自動の読取値。手動端点ではない。' },
+        { src: iso, name: 'ISO', note: '新しい証拠ではISO 200を確認。' },
+        { src: ev, name: 'EV', note: '-4から+4が見える。刻み幅は未確認。' }
+      ]
+    : [
+        { src: af, name: 'AF', note: 'Flower to ∞; endpoint distances are unknown.' },
+        { src: wb, name: 'WB', note: 'Warmer/cooler color; endpoints are unknown.' },
+        { src: shutter, name: 'S', note: 'A 1/6 is an Auto reading, not a manual endpoint.' },
+        { src: iso, name: 'ISO', note: 'The newer evidence visibly shows ISO 200.' },
+        { src: ev, name: 'EV', note: '-4 through +4 is visible; step size is unknown.' }
+      ];
+---
+
+<div class="pro-control-grid">
+  {
+    controls.map((control) => (
+      <figure>
+        <Image src={control.src} alt={`${control.name}: ${control.note}`} loading="lazy" />
+        <figcaption>
+          <>
+            <strong>{control.name}</strong>
+            <span>{control.note}</span>
+          </>
+        </figcaption>
+      </figure>
+    ))
+  }
+</div>

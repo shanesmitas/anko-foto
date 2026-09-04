@@ -1,0 +1,51 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import GoalGrid from '../../components/GoalGrid.astro';
+import { withBase } from '../../lib/routes';
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'Choose what you want to photograph',
+    description: 'A friendly, practical guide to having fun with a moto camera.',
+    template: 'splash',
+    hero: {
+      title: 'What do you want to shoot?',
+      tagline:
+        'Start with a goal, not jargon. One card takes you straight to the first settings to try.',
+      actions: [{ text: 'Choose a goal', link: '#goals', variant: 'primary' }]
+    }
+  }}
+>
+  <nav class="mode-chooser" aria-label="Choose by mode">
+    <strong>By mode:</strong>
+    <a href={withBase('/en/recipes/everyday-photo/')}>Photo</a>
+    <a href={withBase('/en/recipes/night-city/')}>Night Vision</a>
+    <a href={withBase('/en/recipes/people-portrait/')}>Portrait</a>
+    <a href={withBase('/en/recipes/moving-subject/')}>Pro</a>
+    <a href={withBase('/en/recipes/wide-landscape/')}>0.5×</a>
+    <a href={withBase('/en/recipes/panorama/')}>Panorama</a>
+  </nav>
+  <section id="goals" aria-labelledby="goals-title">
+    <h2 id="goals-title" class="section-heading">Choose a goal</h2>
+    <GoalGrid
+      locale="en"
+      slugs={[
+        'sunset',
+        'moving-subject',
+        'night-city',
+        'people-portrait',
+        'pet-action',
+        'flower-closeup',
+        'food-window-light',
+        'wide-landscape',
+        'panorama',
+        'selfie'
+      ]}
+    />
+  </section>
+  <div class="callout-panel">
+    <strong>When in doubt:</strong> start with Photo + 1×, then tap what matters. Watch your footing as
+    well as the screen.
+  </div>
+</StarlightPage>

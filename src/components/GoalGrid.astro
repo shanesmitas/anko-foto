@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import { publicRecipes } from '../data/recipes';
+import { exampleImages } from '../data/images';
+import { attributions } from '../data/attributions';
+import { localizedPath, withBase, type Locale } from '../lib/routes';
+
+interface Props {
+  locale: Locale;
+  slugs?: string[];
+}
+const { locale, slugs } = Astro.props;
+const shown = slugs
+  ? slugs.map((slug) => publicRecipes.find((item) => item.slug === slug)).filter(Boolean)
+  : publicRecipes;
+---
+
+<div class="goal-grid">
+  {
+    shown.map((recipe) => {
+      if (!recipe) return null;
+      const image = exampleImages[recipe.image];
+      const attribution = attributions[recipe.attribution as keyof typeof attributions];
+      return (
+        <a class="goal-card" href={withBase(localizedPath(`/recipes/${recipe.slug}/`, locale))}>
+          <div class="goal-image">
+            <Image
+              src={image}
+              alt=""
+              widths={[360, 640]}
+              sizes="(max-width: 520px) 46vw, 280px"
+              loading="lazy"
+            />
+            <span class="image-label">{attribution.label[locale]}</span>
+          </div>
+          <span class="goal-copy">
+            <strong>{recipe.title[locale]}</strong>
+            <small>{recipe.summary[locale]}</small>
+          </span>
+          <span class="arrow" aria-hidden="true">
+            →
+          </span>
+        </a>
+      );
+    })
+  }
+</div>

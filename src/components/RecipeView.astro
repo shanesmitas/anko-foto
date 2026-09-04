@@ -1,0 +1,200 @@
+---
+import { Image } from 'astro:assets';
+import { publicRecipes, recipeEvidenceRefs, settingLabel, type Recipe } from '../data/recipes';
+import { exampleImages } from '../data/images';
+import { attributions } from '../data/attributions';
+import { evidenceCatalog } from '../data/capabilities';
+import { localizedPath, withBase, type Locale } from '../lib/routes';
+import photoScreen from '../../evidence/screenshots/06-photo-mode.png';
+import detailsScreen from '../../evidence/screenshots/08-details-mode-grid.png';
+import proScreen from '../../evidence/screenshots/11-pro-shutter-expanded.png';
+
+interface Props {
+  recipe: Recipe;
+  locale: Locale;
+}
+const { recipe, locale } = Astro.props;
+const image = exampleImages[recipe.image];
+const attribution = attributions[recipe.attribution as keyof typeof attributions];
+const isPro = recipe.settings.some((setting) => setting.capabilityId === 'mode.pro');
+const isDetails = recipe.settings.some((setting) =>
+  [
+    'mode.night',
+    'mode.panorama',
+    'mode.ultra-res',
+    'mode.timelapse',
+    'mode.scan',
+    'mode.tilt-shift'
+  ].includes(setting.capabilityId)
+);
+const teachingImage = isPro ? proScreen : isDetails ? detailsScreen : photoScreen;
+const related = publicRecipes.filter((item) => item.slug !== recipe.slug).slice(0, 3);
+const evidenceRefs = recipeEvidenceRefs(recipe);
+const t =
+  locale === 'ja'
+    ? {
+        first: 'まずこれ',
+        settings: '設定',
+        adjust: 'うまくいかない時',
+        why: 'なぜ？',
+        safety: '安全メモ',
+        evidence: '確認根拠',
+        all: 'ほかの撮り方',
+        where: '設定はどこ？',
+        whereCopy: isPro
+          ? '画面下のモード列から「プロ」を選び、AF・WB・S・ISO・EV の操作列を使います。'
+          : isDetails
+            ? '写真画面の「詳細」を開き、モード一覧から選びます。'
+            : '写真画面の下側でモードと倍率を選びます。',
+        next: '次に試す',
+        fixes: [
+          {
+            label: '暗すぎる？',
+            copy: isPro
+              ? 'まずISOは自動のまま、被写体を明るい場所へ。'
+              : '被写体を明るい場所へ移す。'
+          },
+          { label: '明るすぎる？', copy: '明るい所をタップし、直射光を少し避ける。' },
+          {
+            label: 'まだぶれる？',
+            copy: isPro
+              ? '目標値を決めず、シャッターを速い方向へ。'
+              : '被写体をタップし、両手や壁で端末を安定させる。'
+          },
+          {
+            label: '色が変？',
+            copy: isPro
+              ? 'WBを自動へ戻し、一種類の光で試す。'
+              : '色の違う照明が混じらない場所で試す。'
+          }
+        ]
+      }
+    : {
+        first: 'Try this first',
+        settings: 'Settings',
+        adjust: 'If it is not working',
+        why: 'Why it works',
+        safety: 'Safety note',
+        evidence: 'Evidence',
+        all: 'More recipes',
+        where: 'Where is that control?',
+        whereCopy: isPro
+          ? 'Choose Pro from the bottom mode strip, then use the AF, WB, S, ISO, and EV control row.'
+          : isDetails
+            ? 'Open Details from the Photo screen and choose the mode from its grid.'
+            : 'Choose the mode and zoom near the bottom of the Photo screen.',
+        next: 'Try next',
+        fixes: [
+          {
+            label: 'Too dark?',
+            copy: isPro
+              ? 'Keep ISO on Auto first and move the subject into better light.'
+              : 'Move the subject into better light.'
+          },
+          {
+            label: 'Too bright?',
+            copy: 'Tap a bright area and move slightly out of direct glare.'
+          },
+          {
+            label: 'Still blurry?',
+            copy: isPro
+              ? 'Move the shutter faster without assuming a target value.'
+              : 'Tap the subject and steady the phone with both hands or a wall.'
+          },
+          {
+            label: 'Color looks wrong?',
+            copy: isPro
+              ? 'Return WB to Auto and try under one kind of light.'
+              : 'Move away from mixed-color lighting and retry.'
+          }
+        ]
+      };
+---
+
+<article class="recipe-page">
+  <div class="recipe-title-row">
+    <p class="recipe-summary">{recipe.summary[locale]}</p>
+    <a class="small-link" href={withBase(localizedPath('/recipes/', locale))}>{t.all} →</a>
+  </div>
+
+  <figure class="recipe-example">
+    <Image
+      src={image}
+      alt={attribution.alt[locale]}
+      widths={[640, 960, 1280]}
+      sizes="(max-width: 800px) 100vw, 760px"
+    />
+    <figcaption>
+      <span class="image-label static">{attribution.label[locale]}</span>
+      {attribution.creator}
+    </figcaption>
+  </figure>
+
+  <section class="first-settings" aria-labelledby="first-title">
+    <h2 id="first-title">{t.first}</h2>
+    <ol>{recipe.tryFirst.map((step) => <li>{step[locale]}</li>)}</ol>
+    <h3>{t.settings}</h3>
+    <ul class="setting-chips">
+      {recipe.settings.map((setting) => <li>{settingLabel(setting, locale)}</li>)}
+    </ul>
+  </section>
+
+  <aside class="control-location">
+    <div>
+      <h2>{t.where}</h2>
+      <p>{t.whereCopy}</p>
+      <a href={withBase(localizedPath(isPro ? '/controls/pro/' : '/controls/camera-map/', locale))}>
+        {locale === 'ja' ? '大きな画面で確認 →' : 'See the annotated screen →'}
+      </a>
+    </div>
+    <Image src={teachingImage} alt="" loading="lazy" />
+  </aside>
+
+  <section class="recipe-adjust"><h2>{t.adjust}</h2><p>{recipe.adjust[locale]}</p></section>
+
+  <div class="troubleshooting-grid">
+    {
+      t.fixes.map((fix) => (
+        <section>
+          <>
+            <h3>{fix.label}</h3>
+            <p>{fix.copy}</p>
+          </>
+        </section>
+      ))
+    }
+  </div>
+
+  <div class="recipe-notes">
+    <section><h2>{t.why}</h2><p>{recipe.why[locale]}</p></section>
+    <aside><h2>{t.safety}</h2><p>{recipe.safety[locale]}</p></aside>
+  </div>
+
+  <details class="evidence-details">
+    <summary>{t.evidence}</summary>
+    <ul>
+      {
+        evidenceRefs.map((ref) => (
+          <li>
+            <code>{ref}</code> — {evidenceCatalog[ref as keyof typeof evidenceCatalog]}
+          </li>
+        ))
+      }
+    </ul>
+  </details>
+
+  <nav class="related-recipes" aria-label={t.next}>
+    <h2>{t.next}</h2>
+    <ul>
+      {
+        related.map((item) => (
+          <li>
+            <a href={withBase(localizedPath(`/recipes/${item.slug}/`, locale))}>
+              {item.title[locale]} →
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</article>

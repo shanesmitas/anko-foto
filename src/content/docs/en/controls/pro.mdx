@@ -1,0 +1,36 @@
+---
+title: Understand Pro controls
+description: Try ISO, shutter, WB, and AF without guessing ranges.
+---
+
+import ProControlTour from '../../../../components/ProControlTour.astro';
+
+## Start from Auto
+
+The Pro screen shows ISO, shutter speed (S), white balance (WB), and focus (AF). Leave most controls on Auto and change just one, so you can see what it does.
+
+| Control | What it changes            | Observed on this device |
+| ------- | -------------------------- | ----------------------- |
+| S       | Freezes or trails movement | Auto, 1/350             |
+| ISO     | Brightness and grain       | Auto, 100, 200          |
+| WB      | Color                      | Auto                    |
+| AF      | Focus                      | Auto                    |
+
+### Starting point for motion
+
+Set S to **1/350** and leave ISO, WB, and AF on **Auto**. If motion still blurs, move the shutter faster without assuming a target endpoint. The full ranges remain unknown.
+
+## What changes?
+
+- Faster shutter: less light and a darker image, but less motion blur.
+- Slower shutter: more light and a brighter image, but more motion blur and camera-shake risk.
+- Higher ISO: a brighter image with more noise.
+- Lower ISO: a cleaner but darker image unless you add light or use a slower shutter.
+- EV adjusts automatic exposure. It may not remain available when shutter and ISO are both manual.
+- Aperture is absent from the observed control row, so this guide does not teach it as an adjustable setting.
+
+## The observed control row
+
+<ProControlTour locale="en" />
+
+The physical screen also shows a RAW button and live histogram. The RAW output combinations are unconfirmed. The histogram is an optional brightness guide; beginners do not need it for the first shot.

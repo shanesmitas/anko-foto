@@ -1,0 +1,18 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import RecipeView from '../../../components/RecipeView.astro';
+import { publicRecipes, type Recipe } from '../../../data/recipes';
+
+export function getStaticPaths() {
+  return publicRecipes.map((recipe) => ({ params: { slug: recipe.slug }, props: { recipe } }));
+}
+
+interface Props {
+  recipe: Recipe;
+}
+const { recipe } = Astro.props;
+---
+
+<StarlightPage frontmatter={{ title: recipe.title.en, description: recipe.summary.en }}>
+  <RecipeView recipe={recipe} locale="en" />
+</StarlightPage>
