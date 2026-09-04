@@ -7,7 +7,7 @@ This is a complete planning-and-evidence handoff for Codex to build the Japanese
 1. The unzipped folder.
 2. The entire contents of `CODEX_BUILD_PROMPT.md` as the task prompt.
 
-Codex must work directly inside the unzipped folder. That package root becomes the `moto-camera-guide-jp` repository, keeping the evidence, research, planning documents, and implementation together. The prompt tells Codex to build immediately without repeating framework or information-architecture planning.
+Codex must work directly inside the unzipped folder. That package root becomes the `anko-foto` repository, keeping the evidence, research, planning documents, and implementation together. The prompt tells Codex to build immediately without repeating framework or information-architecture planning.
 
 Before any edit, run:
 

@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
-const base = '/moto-camera-guide-jp';
+const base = '/anko-foto';
 
 for (const locale of ['ja', 'en'] as const) {
   for (const theme of ['light', 'dark'] as const) {

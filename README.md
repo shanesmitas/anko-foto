@@ -1,6 +1,6 @@
-# moto-camera-guide-jp
+# anko-foto
 
-A bilingual, mobile-first camera learning guide built from physical-device evidence. Japanese is served at `/`; English mirrors every public route under `/en/`. The production base path is `/moto-camera-guide-jp/` for GitHub Pages.
+A bilingual, mobile-first camera learning guide built from physical-device evidence. Japanese is served at `/`; English mirrors every public route under `/en/`. The production base path is `/anko-foto/` for GitHub Pages.
 
 ## Run locally
 
@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Open `http://localhost:4321/moto-camera-guide-jp/`.
+Open `http://localhost:4321/anko-foto/`.
 
 ## Validate
 
@@ -41,6 +41,6 @@ Use `npm run generate:derived` after a successful build to regenerate the two 10
 
 ## Deployment boundary
 
-`.github/workflows/deploy.yml` builds a Pages artifact under the configured base path. Before any external deployment, confirm the GitHub owner, repository visibility, authenticated credentials, and explicit deployment authorization. Local completion does not imply that those external writes are authorized.
+`.github/workflows/deploy.yml` deploys pushes to `master` as a Pages artifact under `/anko-foto/`. Deployment to the private repository `shanesmitas/anko-foto` was explicitly authorized on 2026-09-04 and uses authenticated admin access. The live site target is `https://shanesmitas.github.io/anko-foto/`.
 
 For the original handoff, evidence requests, and implementation constraints, start with `README_START_HERE.md` and `CODEX_BUILD_PROMPT.md`.

@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { publicRecipes } from '../src/data/recipes';
 
-const base = '/moto-camera-guide-jp';
+const base = '/anko-foto';
 const staticRoutes = [
   '/',
   '/recipes/',

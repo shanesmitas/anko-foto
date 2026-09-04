@@ -3,7 +3,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { spawn } from 'node:child_process';
 
 const origin = 'http://127.0.0.1:4323';
-const base = '/moto-camera-guide-jp';
+const base = '/anko-foto';
 const chromePort = 9223;
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4323'], {
   stdio: 'ignore',
@@ -17,7 +17,7 @@ const chrome = spawn(
     '--headless=new',
     '--no-sandbox',
     '--disable-gpu',
-    '--user-data-dir=/tmp/moto-camera-lighthouse-profile'
+    '--user-data-dir=/tmp/anko-foto-lighthouse-profile'
   ],
   { stdio: 'ignore', detached: true }
 );

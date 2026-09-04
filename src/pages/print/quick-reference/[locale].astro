@@ -18,7 +18,7 @@ const picks = [
 ]
   .map((slug) => publicRecipes.find((recipe) => recipe.slug === slug))
   .filter(Boolean);
-const title = locale === 'ja' ? 'moto カメラ 早見表' : 'moto Camera Quick Guide';
+const title = locale === 'ja' ? 'anko-foto カメラ早見表' : 'anko-foto Camera Quick Guide';
 ---
 
 <html lang={locale}>
@@ -69,7 +69,7 @@ const title = locale === 'ja' ? 'moto カメラ 早見表' : 'moto Camera Quick 
             ? '歩きながら画面を見ない。人を撮る・共有する前に聞く。'
             : 'Do not watch the screen while walking. Ask before photographing or sharing.'
         }<small
-          >moto-camera-guide-jp · {
+          >anko-foto · {
             locale === 'ja'
               ? '実機で確認できた値だけを掲載'
               : 'Exact values are device-observed only'

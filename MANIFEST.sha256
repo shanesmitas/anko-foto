@@ -1,5 +1,5 @@
-1e140201a8f7a27b966f9b6818be108a5c573badb7a5c41e2612f6284cf507de  ./CODEX_BUILD_PROMPT.md
-8614dfe642ebe67e17a477e1cad432090e828238d551a45c77b555ba81590ad4  ./README_START_HERE.md
+c8663e341542ee89860d3827be5511eb53d127ffcf51444f6719750c4989ad00  ./CODEX_BUILD_PROMPT.md
+29ed12c2cb12b5a2e22982b2bc0ef0e650573dabe2f59f82e97f22e686db1f7a  ./README_START_HERE.md
 14756864641c1c4e1d0d76540c2ec0192c6b1032eaa7f730845c2cbdc5fc1b3e  ./brief/original-project-brief.txt
 e18490149440263417a3d203e0586a1d672508d7b2851aa6326d74076d1c92c8  ./evidence/README.md
 bf5cef3057bde78e9f67ae0b9dac650247564c0732e0a69b895c1e830a1c65f7  ./evidence/screenshots/01-camera-settings-upper.png
@@ -15,9 +15,9 @@ b509e735e0eff59f485fa25b36f3488f09f1bd8f4b5f7d919eee6cebe8edf415  ./evidence/scr
 1ab7f96dd6a8caead6549b95b06a49bbad3f59800c085f22acdc03d05101d8fb  ./evidence/screenshots/11-pro-shutter-expanded.png
 2b8af12742e9567628dc7b9e88f73de39ff9574fc9ddb22aa7266e1ceefb0db2  ./evidence/screenshots/12-pro-iso-expanded.png
 19873ce8aafcfd19bab8f319e774ca6a7c095f3d4ba14b69e7033e98050c1b71  ./evidence/screenshots/13-pro-ev-expanded.png
-61ea31dc6d6e6ade1e70dc86ec13b7d78dd405ea33cdb43329c44f82be73e50c  ./planning/checkpoint.md
-668de14c1106dc064526ea0749b23fc446aa170d849fcb61d6bb3bc34fc27602  ./planning/implementation-spec.md
-77c6f6185cb4df5b3b19de5cb5a3d8716dfaeac143ff64e05a03e2007e88446b  ./research/device-capability-matrix.md
+c21450221d70327db928c45bd91660f7fed6dd6be98269fdd13576bfb1519050  ./planning/checkpoint.md
+85d2347fa0dc28e37a9883a5d20a33e2ae62dd20822c0729b2b38db14b0e0f3b  ./planning/implementation-spec.md
+12cb34a4a8f61401502d616f43d65ea8f24c652e9ba72d93916c616a72799cb8  ./research/device-capability-matrix.md
 124860b44dde317c7c01e5800d65d38ecd6a4b186dc0481fb66e5b3e881238e6  ./research/screenshot-evidence.md
 700465d19e2fed9c43012e098b986ec96123a848672c0caee54c060e7c89ee48  ./research/sources.md
 ee9026f0c57c011bd9bff3987c3c733b5a032f584a0d65b4cfa00a4a0887d4f7  ./research/template-decision.md

@@ -9,7 +9,7 @@
 - Best-supported retail identity: **moto g66j 5G, Japanese SIM-free 8 GB / 128 GB** (`INFERRED`, high but not final confidence).
 - Why not final: the physical screenshot shows only the regulatory model, and secondary sources contradict each other about XT2529-3 versus XT2529-4.
 - Resolution: one **About phone** screenshot showing product/device name supplies the evidence for a non-null `device.verifiedIdentity`; model verification and any exact-model badge are derived from that field.
-- Naming decision until then: **`moto-camera-guide-jp`**.
+- Naming decision: **`anko-foto`**.
 
 ## 2. Camera evidence summary
 
@@ -76,7 +76,7 @@ Mobile persistent navigation remains four items: **Home · 撮り方 · 設定 �
 
 ### Hero
 
-- `moto カメラ遊びガイド` (working title)
+- `anko-foto カメラガイド`
 - One sentence: “撮りたいものを選ぶと、すぐに設定がわかるよ。”
 - Optional small verified-model badge only after device identity is confirmed
 

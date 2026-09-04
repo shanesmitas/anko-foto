@@ -8,7 +8,7 @@
 
 The physical phone is **regulatory model XT2529-3**. The best-supported commercial identity is **moto g66j 5G, Japanese SIM-free 8 GB / 128 GB variant**, but this is not yet `VERIFIED_DEVICE`: the available captures do not show the retail product name, and online sources inconsistently swap XT2529-3 and XT2529-4. Several Japanese retail inventory records and a device database map XT2529-3 to g66j, while other secondary articles map g66j to XT2529-4.
 
-**Implementation rule:** use the neutral working/repository name `moto-camera-guide-jp` and build now. Do not publish an exact-model badge or claim that this unit is “moto g66j 5G” until one screenshot of **設定 → デバイス情報 / 端末情報 (About phone)** shows the commercial product name.
+**Implementation rule:** use the neutral repository name `anko-foto`. Do not publish an exact-model badge or claim that this unit is “moto g66j 5G” until one screenshot of **設定 → デバイス情報 / 端末情報 (About phone)** shows the commercial product name.
 
 The official moto g66j product and support pages are nevertheless the correct provisional capability baseline because their hardware and the observed UI match the phone: 50 MP Sony LYTIA 600 main camera, 8 MP ultrawide, 32 MP selfie camera, and a Pro control row of AF, WB, shutter, ISO, and EV.
 

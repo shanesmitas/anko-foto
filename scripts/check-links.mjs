@@ -2,7 +2,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 
 const root = resolve('dist');
-const base = '/moto-camera-guide-jp/';
+const base = '/anko-foto/';
 const htmlFiles = [];
 
 function walk(directory) {

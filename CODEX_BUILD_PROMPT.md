@@ -16,7 +16,7 @@ The canonical deliverable is a GitHub Pages website. Treat delivery as three exp
 
 ## Start here
 
-Work in this package root. It is the future `moto-camera-guide-jp` repository; do not create a sibling project or move the evidence elsewhere.
+Work in this package root. It is the `anko-foto` repository; do not create a sibling project or move the evidence elsewhere.
 
 Before editing, run `sha256sum -c MANIFEST.sha256` and stop if an existing package file fails verification. Then read these files completely:
 
@@ -43,8 +43,8 @@ If instructions conflict, use this priority:
 
 The physical regulatory model is XT2529-3. The best-supported commercial identity is provisionally moto g66j 5G, but the supplied files do not contain an About Phone screen that proves the retail product name or current Android version. Therefore:
 
-- Use `moto-camera-guide-jp` as the repository/package name.
-- Use a neutral public guide title, such as `moto カメラ遊びガイド` / `Moto Camera Play Guide`.
+- Use `anko-foto` as the repository/package name.
+- Use the neutral public guide title `anko-foto カメラガイド` / `anko-foto Camera Guide`.
 - Do not display an exact-model badge or claim that this unit is definitely moto g66j 5G.
 - A transparent About note may say that XT2529-3 is the physical regulatory model and moto g66j 5G documentation is the provisional official baseline.
 - Provisional g66j-only specifications may appear in About only when explicitly qualified. They cannot validate exact public recipe settings until the physical retail identity is confirmed.
@@ -182,7 +182,7 @@ Automated checks must:
 
 - Run install, format check, lint, Astro/type/schema checks, unit tests, production build, and link validation.
 - Prove Japanese/English route parity and path-preserving language switching for every generated route.
-- Build and serve under `/moto-camera-guide-jp/`; reject root-relative internal links or assets that omit the configured base.
+- Build and serve under `/anko-foto/`; reject root-relative internal links or assets that omit the configured base.
 - Use browser tests at 360, 390, 430, 768, and 1280 px to check navigation, focus order, horizontal overflow, reserved image dimensions/layout shift, and bottom-navigation overlap.
 - Repeat representative reading and navigation with JavaScript disabled.
 - Record browser requests and fail on runtime requests outside the deployed same-origin site.

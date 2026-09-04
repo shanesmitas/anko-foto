@@ -4,7 +4,7 @@
 
 Build a static, mobile-first Japanese/English photography companion for the supplied Motorola phone UI. It is for a 14-year-old Japanese beginner who wants useful settings while taking a photo—not a camera-theory course.
 
-Working repository and package name: `moto-camera-guide-jp`.
+Repository and package name: `anko-foto`.
 
 Implement directly in the package root that contains this specification, the evidence, and the manifest. Do not create a sibling project. The package root becomes the Git repository root.
 
@@ -226,7 +226,7 @@ Current hard boundaries:
 - `npm ci`, format check, lint, Astro/type/schema checks, unit tests, production build, and link check all pass.
 - Run a bilingual-route parity test: each published Japanese page has an English equivalent and vice versa.
 - Validate all recipe enums/numbers and screenshot references at build time.
-- Build and serve under `/moto-camera-guide-jp/`; tests must reject internal links or assets that incorrectly assume `/`.
+- Build and serve under `/anko-foto/`; tests must reject internal links or assets that incorrectly assume `/`.
 - At 360, 390, 430, 768, and 1280 px, use browser tests to check navigation, focus order, horizontal overflow, reserved image dimensions/layout shift, and bottom-nav overlap.
 - Repeat representative reading and navigation with JavaScript disabled; core content and links must remain usable.
 - Record browser requests and fail on runtime requests outside the deployed same-origin site.

@@ -3,7 +3,7 @@ import { mkdirSync } from 'node:fs';
 import { spawn } from 'node:child_process';
 
 const origin = 'http://127.0.0.1:4322';
-const base = '/moto-camera-guide-jp';
+const base = '/anko-foto';
 mkdirSync('public/downloads', { recursive: true });
 
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4322'], {

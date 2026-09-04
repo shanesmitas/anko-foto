@@ -2,7 +2,7 @@
 
 **Started:** 2026-09-04  
 **Package root:** `/home/z/projects/photography`  
-**Repository/package name:** `moto-camera-guide-jp`
+**Repository/package name:** `anko-foto`
 
 ## Toolchain
 
@@ -24,7 +24,7 @@
 - [x] Add 15 bilingual public recipes, Controls, Modes, Help, Challenges, Safety, and About/Sources.
 - [x] Create annotated, non-destructive screenshot teaching views.
 - [x] Add local illustrative photography with structured attribution.
-- [x] Add the GitHub Pages Actions workflow and verify the `/moto-camera-guide-jp/` base path.
+- [x] Add the GitHub Pages Actions workflow and verify the `/anko-foto/` base path.
 
 ## Deterministic checks
 
@@ -32,7 +32,7 @@
 - [x] `npm run format:check`
 - [x] `npm run lint`
 - [x] `npm run check` — 0 errors, 0 warnings, 0 hints.
-- [x] `npm test` — 9 evidence/data contract tests.
+- [x] `npm test` — 11 evidence/data contract tests.
 - [x] `npm run build` — 54 static pages with local Pagefind.
 - [x] `npm run test:links` — all 54 HTML files resolve under the project base path.
 - [x] `npm run test:e2e` — 16 Playwright tests.
@@ -59,7 +59,7 @@
 - [x] E2E Verifier final verdict: `PASS`; 25 locale pairs and 250 route/viewport combinations independently checked.
 - [x] UI/UX Reviewer findings resolved; final verdict: `PASS`.
 - [x] Post-implementation Plan Guardian verdict: `PASS`, with no remaining deviations.
-- [ ] GitHub owner, visibility, credentials, and deployment authorization confirmed.
+- [x] GitHub owner `shanesmitas`, private repository visibility, authenticated admin access, and explicit deployment authorization confirmed on 2026-09-04.
 - [ ] Live GitHub Pages URL verified before reporting deployment.
 
 ## Current milestone status
@@ -67,7 +67,7 @@
 - Website v1: **locally stable; deployment-ready**
 - Japanese/English quick-reference images: **complete**
 - Optional PDF: **complete**
-- GitHub deployment: **workflow complete; external deployment not authorized**
+- GitHub deployment: **authorized for `shanesmitas/anko-foto`; `master` release in progress**
 
 ## Known release boundaries
 

@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import process from 'node:process';
 
-const base = process.env.PUBLIC_BASE_PATH ?? '/moto-camera-guide-jp';
+const base = process.env.PUBLIC_BASE_PATH ?? '/anko-foto';
 const site = process.env.PUBLIC_SITE_URL ?? 'http://localhost:4321';
 
 export default defineConfig({
@@ -12,8 +12,8 @@ export default defineConfig({
   integrations: [
     starlight({
       title: {
-        ja: 'moto カメラ遊びガイド',
-        en: 'moto Camera Play Guide'
+        ja: 'anko-foto カメラガイド',
+        en: 'anko-foto Camera Guide'
       },
       description: '写真を撮りながら、すぐに設定を見つけられる日英ガイド。',
       defaultLocale: 'root',
